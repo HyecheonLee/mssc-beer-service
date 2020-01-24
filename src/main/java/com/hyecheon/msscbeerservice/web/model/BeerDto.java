@@ -20,17 +20,20 @@ public class BeerDto {
 
   @Null
   private UUID id;
+
   @Null
   private Integer version;
+
   @Null
   private OffsetDateTime createdDate;
+
   @Null
   private OffsetDateTime lastModifiedDate;
 
   @NotBlank
   private String beerName;
 
-  @NotBlank
+  @NotNull
   private BeerStyleEnum beerStyle;
 
   @Positive

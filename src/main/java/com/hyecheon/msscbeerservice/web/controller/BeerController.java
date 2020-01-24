@@ -19,13 +19,12 @@ public class BeerController {
 
   @GetMapping("/{beerId}")
   public ResponseEntity<BeerDto> getBeerById(@PathVariable("beerId") UUID beerId) {
-
     //todo impl
     return new ResponseEntity<>(BeerDto.builder().build(), HttpStatus.OK);
   }
 
   @PostMapping
-  public ResponseEntity<?> saveNewBeer(@Validated @RequestBody BeerDto beerDto) {
+  public ResponseEntity<?> saveNewBeer(@RequestBody @Validated BeerDto beerDto) {
     //todo impl
     return new ResponseEntity<>(HttpStatus.CREATED);
   }
@@ -36,5 +35,4 @@ public class BeerController {
     //todo impl
     return new ResponseEntity(HttpStatus.NO_CONTENT);
   }
-
 }
