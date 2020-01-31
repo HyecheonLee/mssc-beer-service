@@ -1,7 +1,10 @@
 package com.hyecheon.msscbeerservice.service;
 
 import com.hyecheon.msscbeerservice.web.model.BeerDto;
+import com.hyecheon.msscbeerservice.web.model.BeerPagedList;
+import com.hyecheon.msscbeerservice.web.model.BeerStyleEnum;
 import java.util.UUID;
+import org.springframework.data.domain.PageRequest;
 
 /**
  * @author hyecheon
@@ -9,9 +12,14 @@ import java.util.UUID;
  */
 public interface BeerService {
 
-  BeerDto getById(UUID beerId);
+  BeerPagedList listBeers(String beerName,
+      BeerStyleEnum beerStyle, PageRequest pageRequest, Boolean showInventoryOnHand);
 
-  BeerDto savedNewBeer(BeerDto beerDto);
+  BeerDto getById(UUID beerId, Boolean showInventoryOnHand);
+
+  BeerDto saveNewBeer(BeerDto beerDto);
 
   BeerDto updateBeer(UUID beerId, BeerDto beerDto);
+
+  BeerDto getByUpc(String upc);
 }
